@@ -18,7 +18,7 @@ class TicTacToe(private val gameBoard: MutableList<String>, private val player1:
         showBoard()
         val result = checkWinner()
 
-        if(result != null){ // place not empty on board
+        if(result != null){
             if(result.equals("draw")){
                 println("match drawn")
                 return
@@ -36,40 +36,8 @@ class TicTacToe(private val gameBoard: MutableList<String>, private val player1:
             println("$playerName, enter position between 1-9 to place your sign $playerSign")
             val pos = readLine()
             if(isValidInput(pos)){
-                updateBoard(pos?.toInt()?.minus(1)!!, playerSign)
+                gameBoard[pos?.toInt()?.minus(1)!!] = playerSign
                 isTrue = false
-            }
-        }
-    }
-
-    private fun updateBoard(pos: Int, sign: String) {
-        when(pos) {
-            0 ->{
-                gameBoard[0] = sign
-            }
-            1 ->{
-                gameBoard[1] = sign
-            }
-            2 ->{
-                gameBoard[2] = sign
-            }
-            3 ->{
-                gameBoard[3] = sign
-            }
-            4 ->{
-                gameBoard[4] = sign
-            }
-            5 ->{
-                gameBoard[5] = sign
-            }
-            6 ->{
-                gameBoard[6] = sign
-            }
-            7 ->{
-                gameBoard[7] = sign
-            }
-            8 ->{
-                gameBoard[8] = sign
             }
         }
     }
